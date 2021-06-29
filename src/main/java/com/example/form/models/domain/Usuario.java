@@ -1,19 +1,23 @@
 package com.example.form.models.domain;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 public class Usuario {
 
 	@NotEmpty
+	@Size(min = 3 , max = 8)
 	private String username;
 	
 	@NotEmpty
 	private String password;
 	
 	@NotEmpty
+	@Email (message = "correo con formato incorrecto")
 	private String email;
 	
-	@NotEmpty
+	@NotEmpty(message = "el nombre no puede ser vacio")
 	private String nombre;
 	
 	@NotEmpty
