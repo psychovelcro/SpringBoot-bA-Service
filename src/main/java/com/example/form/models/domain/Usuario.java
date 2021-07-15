@@ -2,6 +2,7 @@ package com.example.form.models.domain;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+//import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class Usuario {
@@ -17,12 +18,13 @@ public class Usuario {
 	@Email (message = "correo con formato incorrecto")
 	private String email;
 	
-	@NotEmpty(message = "el nombre no puede ser vacio")
+//	@NotEmpty(message = "el nombre no puede ser vacio")
 	private String nombre;
 	
 	@NotEmpty
 	private String apellido;
 	
+//	@Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
 	private String identificador;
 
 	public String getIdentificador() {
