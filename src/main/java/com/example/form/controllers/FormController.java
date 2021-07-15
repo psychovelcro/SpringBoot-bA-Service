@@ -1,6 +1,5 @@
 package com.example.form.controllers;
 
-
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -34,9 +33,7 @@ public class FormController {
 		model.addAttribute("titulo", "Resultado form");
 
 		if (result.hasErrors()) {
-			
-			
-			
+
 //			Map<String, String> errores = new HashMap<>();
 //			result.getFieldErrors().forEach(err -> {
 //				errores.put(err.getField(),
