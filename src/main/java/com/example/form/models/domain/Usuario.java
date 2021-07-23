@@ -1,13 +1,16 @@
 package com.example.form.models.domain;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 //import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.example.form.validation.IdentificadorRegex;
+
 public class Usuario {
 
-	@NotEmpty
+	@NotBlank
 	@Size(min = 3 , max = 8)
 	private String username;
 	
@@ -25,6 +28,7 @@ public class Usuario {
 	private String apellido;
 	
 //	@Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
+	@IdentificadorRegex
 	private String identificador;
 
 	public String getIdentificador() {
