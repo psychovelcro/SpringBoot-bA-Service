@@ -7,6 +7,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import com.example.form.validation.IdentificadorRegex;
+import com.example.form.validation.Requerido;
 
 public class Usuario {
 
@@ -18,13 +19,15 @@ public class Usuario {
 	private String password;
 	
 	@NotEmpty
+	@Requerido
 	@Email (message = "correo con formato incorrecto")
 	private String email;
 	
 //	@NotEmpty(message = "el nombre no puede ser vacio")
 	private String nombre;
 	
-	@NotEmpty
+	//@NotEmpty
+	@Requerido
 	private String apellido;
 	
 //	@Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
