@@ -1,9 +1,13 @@
 package com.example.form.models.domain;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-//import javax.validation.constraints.Pattern;
+import javax.validation.constraints.NotNull;
+
 import javax.validation.constraints.Size;
 
 import com.example.form.validation.IdentificadorRegex;
@@ -11,25 +15,31 @@ import com.example.form.validation.Requerido;
 
 public class Usuario {
 
-	@NotBlank
-	@Size(min = 3 , max = 8)
-	private String username;
 	
+	@NotNull
+	@Min(5)
+	@Max(5000)
+	private Integer cuenta;
+
+	@NotBlank
+	@Size(min = 3, max = 8)
+	private String username;
+
 	@NotEmpty
 	private String password;
-	
+
 	@NotEmpty
 	@Requerido
-	@Email (message = "correo con formato incorrecto")
+	@Email(message = "correo con formato incorrecto")
 	private String email;
-	
+
 //	@NotEmpty(message = "el nombre no puede ser vacio")
 	private String nombre;
-	
-	//@NotEmpty
+
+	// @NotEmpty
 	@Requerido
 	private String apellido;
-	
+
 //	@Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
 	@IdentificadorRegex
 	private String identificador;
@@ -80,6 +90,14 @@ public class Usuario {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Integer getCuenta() {
+		return cuenta;
+	}
+
+	public void setCuenta(Integer cuenta) {
+		this.cuenta = cuenta;
 	}
 
 }

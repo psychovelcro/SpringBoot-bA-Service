@@ -10,6 +10,16 @@
 	<form th:action="@{/form}" th:object="${usuario}" method="post">
 
 		<div>
+			<label for="cuenta">cuenta</label>
+			<div>
+				<input type="text" id="cuenta" th:field="*{cuenta}">
+			</div>
+			<div th:if="${#fields.hasErrors('cuenta')}" th:errors="*{cuenta}"></div>
+		</div>
+		
+		
+		
+		<div>
 			<label for="identificador">Identificador</label>
 			<div>
 				<input type="text" id="identificador" th:field="*{identificador}">
@@ -59,6 +69,8 @@
 			</div>
 			<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 		</div>
+		
+		
 
 		<div>
 
