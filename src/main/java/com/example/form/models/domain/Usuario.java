@@ -19,7 +19,6 @@ import com.example.form.validation.Requerido;
 
 public class Usuario {
 
-	
 	@NotNull
 	@Min(5)
 	@Max(5000)
@@ -47,7 +46,7 @@ public class Usuario {
 //	@Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
 	@IdentificadorRegex
 	private String identificador;
-	
+
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechaNacimiento;
