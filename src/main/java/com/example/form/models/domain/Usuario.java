@@ -2,17 +2,18 @@ package com.example.form.models.domain;
 
 import java.util.Date;
 
-import javax.validation.Valid;
+//import javax.validation.Valid;
 import javax.validation.constraints.Email;
+//import javax.validation.constraints.Future;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
-import org.springframework.format.annotation.DateTimeFormat;
+//import org.springframework.format.annotation.DateTimeFormat;
 
 import com.example.form.validation.IdentificadorRegex;
 import com.example.form.validation.Requerido;
@@ -48,8 +49,12 @@ public class Usuario {
 	private String identificador;
 
 	@NotNull
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Past
+	//@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechaNacimiento;
+	
+	@NotEmpty
+	private String pais;
 
 	public String getIdentificador() {
 		return identificador;
@@ -113,6 +118,14 @@ public class Usuario {
 
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
 	}
 
 }
