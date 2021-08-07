@@ -3,6 +3,7 @@ package com.example.form.models.domain;
 import java.util.Date;
 
 //import javax.validation.Valid;
+//import javax.validation.Valid;
 import javax.validation.constraints.Email;
 //import javax.validation.constraints.Future;
 import javax.validation.constraints.Max;
@@ -53,8 +54,8 @@ public class Usuario {
 	//@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechaNacimiento;
 	
-	@NotEmpty
-	private String pais;
+	@NotNull
+	private pais pais;
 
 	public String getIdentificador() {
 		return identificador;
@@ -120,11 +121,11 @@ public class Usuario {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public String getPais() {
+	public pais getPais() {
 		return pais;
 	}
 
-	public void setPais(String pais) {
+	public void setPais(pais pais) {
 		this.pais = pais;
 	}
 
