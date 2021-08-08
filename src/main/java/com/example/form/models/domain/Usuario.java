@@ -1,6 +1,7 @@
 package com.example.form.models.domain;
 
 import java.util.Date;
+import java.util.List;
 
 //import javax.validation.Valid;
 //import javax.validation.Valid;
@@ -21,6 +22,9 @@ import com.example.form.validation.Requerido;
 
 public class Usuario {
 
+	@NotEmpty
+	private List<String> roles;
+	
 	@NotNull
 	@Min(5)
 	@Max(5000)
@@ -128,5 +132,15 @@ public class Usuario {
 	public void setPais(pais pais) {
 		this.pais = pais;
 	}
+
+	public List<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
+	
+	
 
 }
