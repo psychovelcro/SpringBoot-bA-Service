@@ -26,9 +26,11 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import com.example.form.editors.NombreMayusculaEditor;
 import com.example.form.editors.paisPropertyEditor;
+import com.example.form.models.domain.Role;
 import com.example.form.models.domain.Usuario;
 import com.example.form.models.domain.pais;
 import com.example.form.services.PaisService;
+import com.example.form.services.RoleService;
 import com.example.form.validation.UsuarioValidador;
 
 @Controller
@@ -36,11 +38,14 @@ import com.example.form.validation.UsuarioValidador;
 public class FormController {
 
 	@Autowired
-	private paisPropertyEditor paisEditor;
-	
+	private RoleService roleService;
+
 	@Autowired
-	private PaisService paisService; 
-	
+	private paisPropertyEditor paisEditor;
+
+	@Autowired
+	private PaisService paisService;
+
 	@Autowired
 	private UsuarioValidador validador;
 
@@ -54,8 +59,13 @@ public class FormController {
 
 		binder.registerCustomEditor(String.class, "nombre", new NombreMayusculaEditor());
 		binder.registerCustomEditor(String.class, "apellido", new NombreMayusculaEditor());
-		
+
 		binder.registerCustomEditor(pais.class, "pais", paisEditor);
+	}
+
+	@ModelAttribute("listaRoles")
+	public List<Role> listaRoles() {
+		return this.roleService.listar();
 	}
 
 	@ModelAttribute("listaPaises")
@@ -63,18 +73,28 @@ public class FormController {
 		return paisService.listar();
 
 	}
-	
+
 	@ModelAttribute("listaRolesString")
-	public List<String> listaRolesString(){
-		
+	public List<String> listaRolesString() {
+
 		List<String> roles = new ArrayList<>();
 		roles.add("ROLE_ADMIN");
 		roles.add("ROLE_USER");
 		roles.add("ROLE_MODERATOR");
-		
+
 		return roles;
-		
-		
+
+	}
+
+	@ModelAttribute("listaRolesMap")
+	public Map<String, String> listaRolesMap() {
+		Map<String, String> roles = new HashMap<>();
+		roles.put("ROLE_ADMIN", "Administrador");
+		roles.put("ROLE_USER", "Usuario");
+		roles.put("ROLE_MODERATOR", "Moderador");
+
+		return roles;
+
 	}
 
 	@ModelAttribute("paises")
