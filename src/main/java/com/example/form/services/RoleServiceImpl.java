@@ -22,7 +22,7 @@ public class RoleServiceImpl implements RoleService {
 
 	@Override
 	public List<Role> listar() {
-		return null;
+		return roles;
 	}
 
 	@Override
